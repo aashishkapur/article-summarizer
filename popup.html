@@ -5,33 +5,89 @@
  value "popup.html".
  -->
 <html>
-  <head>
-    <title>Getting Started Extension's Popup</title>
-    <style>
-      body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
-        font-size: 100%;
-      }
-      #status {
-        /* avoid an excessively wide status text */
-        white-space: pre;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
-      }
-    </style>
+	<head>
+		<title>Getting Started Extension's Popup</title>
+		<link rel="stylesheet" type="text/css" href="pure-grid-min.css" />
+		<style>
+			#mainTable{
+				height: 300px;
+				width: 400px;
+				overflow: auto;
+			}
+			.articleRow{
+				width: 96%;
+				height: 50px;
+				/*background-color: green;*/
+				/*opacity: .8;*/
+				border: 2px solid black;
+				margin-bottom: 2px;
+				/*display: block;*/
+			}
+			#summarizePage{
+				border-radius: 12px;
+				background-color: rgb(0,191,255);
+				opacity: .8;
+				padding: 4px;
+			}
+			#summarizeRow{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.articleImg{
+				min-height: 100%;
+				min-width: 50px;
+				float: left;
+			}
+			.articleName{
+				min-height: 100%;
+				min-width: 140px;
+				float: left;
+/*				border-right: 2px solid black;
+*/				border-left: 2px solid black;
 
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-     -->
-    <script src="popup.js"></script>
-  </head>
-  <body>
-    <div id="status"></div>
-    <img id="image-result" hidden>
-  </body>
+			}
+			.articleSummary{
+				min-height: 100%;
+				min-width: 50px;
+				float: right;
+				border-left: 2px solid black;
+
+			}
+
+
+		</style>
+
+		<!--
+			- JavaScript and HTML must be in separate files: see our Content Security
+			- Policy documentation[1] for details and explanation.
+			-
+			- [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+		 -->
+	</head>
+	<body>
+		<div id="mainTable">
+			<div id="summarizeRow" class="articleRow">
+				<div id="summarizePage">Summarize this Page</div>
+			</div>
+			<!-- <hr/> -->
+			<div class="articleRow pure-g">
+				<div class="articleImg "><img src="icon.png"/></div>
+				<div class="articleName" id="abcdef">BEST ARTICLE EVER</div>
+				<div class="articleSummary "><img src="icon.png"/></div>
+			</div>
+			<!-- <hr/> -->
+			<div class="articleRow"></div>
+			<div class="articleRow"></div>
+
+		</div>
+		
+ 		<script src="jquery-min.js"></script>
+		<script src="firebase.js"></script>
+		<script src="scripts.js"></script>
+
+ </body>
+
+
 </html>
 
